@@ -2,14 +2,18 @@
 var letter = require('./letter.js');
 
 var Word = function(wrd) {
-	this.word = wrd;
-	this.lets = [];
+	var lets = [];
 	this.found = false;
-	this.getLets = function(word) {
-		for (var i = 0; i < this.word.length; i++) {
-			this.lets.push(new letter.Letter(this.word[i]));
+	function getLets(corLet) {
+		for (var i = 0; i < wrd.length; i++) {
+			if (corLet == wrd[i]) {
+				lets.push(new letter.Letter(corLet));
+			} else {
+
+			}
 		}
 	};
+	getLets(wrd);
 	this.didWeFindTheWord = function() {
 		var count = 0;
 		for (var i = 0; i < this.lets.length; i++) {
@@ -22,7 +26,7 @@ var Word = function(wrd) {
 		}
 		return this.found;
 	};
-	this.checkIfLetterFound = function(guessLetter) {
+	    this.checkIfLetterFound = function(guessLetter) {
 		var whatToReturn = 0;
 		for (var i = 0; i < this.lets.length; i++) {
 			if (this.lets[i].charac === guessLetter) {

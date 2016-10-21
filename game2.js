@@ -1,3 +1,4 @@
+Word = require('./word2.js');
 
 var wordOptions		= [
 	'DOC',
@@ -16,6 +17,8 @@ function Game(){
 	
 	// Computer randomly chooses one of the names from the array.
 	selectedWord	= wordOptions[Math.floor(Math.random()*wordOptions.length)];
+	console.log(selectedWord);
+	Word(selectedWord);
 
 	//SelectedWord becomes individual letters.
 	lettersInWord	= selectedWord.split("");
@@ -33,12 +36,8 @@ function Game(){
 		blanksAndSuccesses.push("_");
 	}
 
-	
-	// Debugging.
-	console.log('Correct Answer: ' + selectedWord);
-	console.log(lettersInWord);
-	console.log('Number of Blanks: ' + numBlanks);
+
+
 	console.log(blanksAndSuccesses);
 }
-
-module.exports = Game;
+exports.Game = Game;
